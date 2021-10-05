@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+canvas {
+    border:1px solid #000000;
+    background-color: #00bfff;
+}
+</style>
+</head>
+<body onload="startGame()">
+<script>
+
+var myBackground
+var scene = 0
+var ralph
+var piggy
+var gravity1
+var se = 0
+var jack
+var text0
+var text01
+var text1
+var pig
+var abd
+var text2
+var pigvine
+var spear
+var spearspeed = 0
+var newpig
+
+
+function startGame() {
+    ralph = new component(60, 168, "https://i.imgur.com/yi64lpf.png", 36, -168, "image");
+	myBackground = new component(640, 360, "https://i.imgur.com/xVIU4IP.png", 0, 0, "image");
+	piggy = new component(84, 168, "https://i.imgur.com/pidtT7I.png", 436, 192, "image");
+    text0 = new component(294, 90, "https://i.imgur.com/dwwWBv9.png", 331, 102, "image")
+          pig = new component(156, 108, "https://i.imgur.com/Tl53f6B.png", 122343, 252, "image" )
+
+
+	roof = new component(10, 360, "rgba(255, 0, 0, 1", 660, 0);
+	back = new component(10, 360, "rgba(255, 0, 0, 1", -50, 0);
+    myGameArea.start();
+}
+
+var myGameArea = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = 640;
+        this.canvas.height = 360;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+	    this.frameNo = 0;
+	    this.interval = setInterval(updateGameArea, 20);
+    window.addEventListener('keydown', function (e) {
+      myGameArea.keys = (myGameArea.keys || []);
+      myGameArea.keys[e.keyCode] = true;
+    })
+    window.addEventListener('keyup', function (e) {
+      myGameArea.keys[e.keyCode] = false;
+    })
+  },
+  clear : function() {
+    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+  },
+  stop : function() {
+    clearInterval(this.interval);
+  }
+}
+
+function component(width, height, color, x, y, type) {
+    this.type = type;
+    if (type == "image") {
+        this.image = new Image();
+        this.image.src = color;
+    }
+    this.width = width;
+    this.height = height;
+    this.speedX = 0;
+    this.speedY = 0;
+    this.x = x;
+    this.y = y;
+	this.gravity = 0.25;
+    this.gravitySpeed = 0;
+    this.update = function() {
+        ctx = myGameArea.context;
+        if (type == "image") {
+            ctx.drawImage(this.image,
+                this.x,
+                this.y,
+                this.width, this.height);
+        } else {
+            ctx.fillStyle = color;
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
+    }
+
+   	this.newPos = function() {
+	    this.gravitySpeed += this.gravity;
+        this.x += this.speedX;
+        this.y += this.speedY + this.gravitySpeed;
+	    this.hitBottom();
+	}
+    this.hitBottom = function() {
+        var rockbottom = myGameArea.canvas.height - this.height;
+        if (this.y > rockbottom) {
+        this.y = rockbottom;
+    }
+  }
+    this.crashWith = function(otherobj) {
+	    var myleft = this.x;
+        var myright = this.x + (this.width);
+        var mytop = this.y;
+        var mybottom = this.y + (this.height);
+        var otherleft = otherobj.x;
+        var otherright = otherobj.x + (otherobj.width);
+        var othertop = otherobj.y;
+        var otherbottom = otherobj.y + (otherobj.height);
+        var grav2 = true;
+        if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
+        grav2 = false;
+    }
+	return grav2;
+}
+	
+}
+
+
+function updateGameArea() {
+	{
+      myGameArea.clear();
+	  myBackground.update();
+      roof.update();
+	  back.update();
+	  piggy.newPos();
+	  piggy.update();
+      pig.newPos();
+      pig.update();
+      text0.update();
+      pig.speedX = 10
+      ralph.speedX = 0;
+      ralph.speedY = 0;    
+      if (myGameArea.keys && scene != 5 && myGameArea.keys[37]) {ralph.speedX = -9; ralph.image.src = "https://i.imgur.com/Uk744Hc.png";}
+      if (myGameArea.keys && scene != 5 && myGameArea.keys[39]) {ralph.speedX = 9; ralph.image.src = "https://i.imgur.com/yi64lpf.png"; }
+      if (myGameArea.keys && scene == 5 && myGameArea.keys[70]) {spearspeed = 1}
+
+
+    ralph.newPos();    
+    ralph.update();
+	
+	
+  }
+
+
+  if (scene == 0) {
+	 myBackground = new component(640, 360, "https://i.imgur.com/xVIU4IP.png", 0, 0, "image");
+	 piggy = new component(84, 168, "https://i.imgur.com/pidtT7I.png", 436, 192, "image");
+     text0 = new component(294, 90, "https://i.imgur.com/dwwWBv9.png", 331, 102, "image")
+
+  }
+
+  if (ralph.crashWith(piggy) && scene == 0) {
+	myGameArea.clear
+	ralph = new component(60, 168, "https://i.imgur.com/yi64lpf.png", 376, 360, "image");
+
+	  } 
+
+  if (scene == 1) {
+
+   piggy = new component(84, 168, "https://i.imgur.com/pidtT7I.png", 4356, 192, "image");
+   pig = new component(156, 108, "https://i.imgur.com/Tl53f6B.png", 123234, 252, "image" )
+   text0 = new component(294, 90, "https://i.imgur.com/XpB2a0z.png", 382340, 132, "image");
+   text01 = new component(324, 30, "https://i.imgur.com/vi9SGpx.png", 0, 0, "image");
+   myBackground.image.src = "https://i.imgur.com/Tzis7OR.png";
+      jack = new component(60, 180, "https://i.imgur.com/6JGxHRj.png", 436, 180, "image")
+      
+      jack.newPos();
+      jack.update();
+      text01.update();
+  }
+
+
+  if (ralph.crashWith(jack) && scene == 1) {
+	myGameArea.clear
+	ralph = new component(60, 168, "https://i.imgur.com/yi64lpf.png", 376, 360, "image");
+    text1 = new component(228, 72, "https://i.imgur.com/af6h8fb.png", 352, 108 , "image");
+    text1.update();
+	  } 
+
+
+
+
+
+      if (ralph.crashWith(jack) && scene == 2) {
+	myGameArea.clear
+	ralph = new component(60, 168, "https://i.imgur.com/yi64lpf.png", 304, 360, "image");
+    text2 = new component(132, 72, "https://i.imgur.com/hTfN7aF.png", 328, 108 , "image");
+    jack = new component(108, 180, "https://i.imgur.com/RYU0qTD.png", 364, 180, "image")
+    pig.speedX = 0
+    pigvine.newPos();
+    pigvine.update();
+    pigvine.speedX = 3
+    text2.update();
+    jack.update();
+    
+
+	  } else if (scene == 2) {
+  myGameArea.clear
+  jack = new component(60, 180, "https://i.imgur.com/4xCBJKK.png", 364, 180, "image")
+  pigvine = new component(156, 108, "https://i.imgur.com/PDNuayV.png", 484, 164, "image");
+  text1 = new component(228, 72, "https://i.imgur.com/af6h8fb.png", 351232, 108 , "image");
+  pig = new component(156, 108, "https://i.imgur.com/Tl53f6B.png", -156, 252, "image" )
+  jack.newPos();
+  jack.update();
+  text1.update();
+  pigvine.newPos();
+  pigvine.update();
+  }
+
+
+
+      if (ralph.crashWith(jack) && scene == 3) {
+	myGameArea.clear
+     jack = new component(60, 180, "https://i.imgur.com/6JGxHRj.png", 412, 180, "image")
+     jack.newPos();
+     jack.update(); 
+	ralph = new component(60, 168, "https://i.imgur.com/yi64lpf.png", 354, 360, "image");
+    text2 = new component(192, 69, "https://i.imgur.com/DGrhsxF.png", 352, 112 , "image");
+    text2.update();
+	  } 
+
+      
+    if (pig.crashWith(jack) && scene == 3) {
+      myGameArea
+            jack = new component(60, 180, "https://i.imgur.com/4xCBJKK.png", 436, 180, "image")
+            jack.newPos();
+            jack.update();
+            } else if (pig.crashWith(roof) && scene == 3) {
+      myGameArea.clear
+            jack = new component(60, 180, "https://i.imgur.com/4xCBJKK.png", 436, 180, "image")
+            jack.newPos();
+            jack.update();
+      
+    }  else if (scene == 3) {
+    myGameArea.clear
+      myBackground.image.src = "https://i.imgur.com/hJzcd1a.png";
+     jack = new component(60, 180, "https://i.imgur.com/6JGxHRj.png", 412, 180, "image")
+     pig.speedX = 5
+     pig.newPos();
+     pig.update();
+     jack.newPos();
+     jack.update();
+
+   }
+     if (ralph.crashWith(jack) && scene == 4) {
+   ralph = new component(60, 168, "https://i.imgur.com/yi64lpf.png", 304, 360, "image");
+
+   jack.newPos();
+   jack.update();
+    text2 = new component(291, 93, "https://i.imgur.com/KNwHlYA.png", 249, 90 , "image");
+    text2.update();
+	    pig.speedX = 0
+   } else if (scene == 4) {
+          myGameArea.clear
+          myBackground.image.src = "https://i.imgur.com/RCXvLWL.png";
+
+        jack = new component(108, 180, "https://i.imgur.com/3gJdxXu.png", 364, 180, "image")
+		    pig.speedX = 0
+        pig = new component(156, 108, "https://i.imgur.com/zwltDF2.png", 460, 252, "image")
+  
+        pig.newPos();
+        pig.update();
+        jack.newPos();
+        jack.update();
+        newpig.speedX = 1231
+   }
+
+
+
+
+
+   if (spearspeed == 1) {
+          myGameArea.clear;
+          spear.gravity = 0.04
+          spear.speedX = 9;
+          spear.newPos();
+          spear.update();
+          newpig.newPos();
+          newpig.update();
+   } else  if (scene == 5) {
+             ralph.image.src = "https://i.imgur.com/FL33EHH.png"
+			 myBackground.image.src = "https://i.imgur.com/RCXvLWL.png";
+        text1 = new component(208.5, 30, "https://i.imgur.com/f12w1NQ.png", 0, 0, "image")
+        newpig = new component(156, 108, "https://i.imgur.com/WVBl1yT.png", 460, 252, "image")
+        newpig.newPos();
+        newpig.update();
+         spear = new component(84, 12, "https://i.imgur.com/AUfTgxH.png", 48, 228, "image")
+         spear.newPos();
+         spear.update();
+        text1.update();
+        spearspeed = 0
+		        pig = new component(156, 108, "https://i.imgur.com/zwltDF2.png", 4640, 252, "image")
+        pig.newPos();
+        pig.update();
+   }
+
+   if (spear.crashWith(newpig)) {
+   newpig.image.src = "https://i.imgur.com/Tl53f6B.png"
+   newpig.speedX = 9
+   spear.gravity = -0.25
+   text2 = new component(52.5, 69, "https://i.imgur.com/8Ye0RSg.png", 46, 123, "image")
+   text2.newPos();
+   text2.update();
+   }
+
+   if (ralph.crashWith(pig) && scene == 6) {
+   
+   ralph = new component(60, 168, "https://i.imgur.com/yi64lpf.png", 400, 360, "image");
+   pig.speedX = 0
+text2 = new component(246, 72, "https://i.imgur.com/KyAU5ha.png", 307, 120, "image")
+text2.newPos();
+text2.update();
+   } else if (scene == 6) {
+   	   newpig.speedX = 1231
+	   pig = new component(72, 156, "https://i.imgur.com/uYpLGv8.png", 460, 252, "image")
+	   myBackground.image.src = "https://i.imgur.com/tO2S0HG.png"
+   }
+
+   if (ralph.crashWith(jack) && scene == 7) {
+      ralph = new component(60, 168, "https://i.imgur.com/yi64lpf.png", 400, 360, "image");
+ 		jack = new component(168, 60, "https://i.imgur.com/89QrLHQ.png", 460, 300, "image")
+		jack.newPos();
+		jack.update();
+ text2 = new component(240, 69, "https://i.imgur.com/mRWDXLZ.png", 310, 123, "image")
+   text2.newPos();
+   text2.update();
+
+   } else if (scene == 7) {
+   	    pig = new component(156, 108, "https://i.imgur.com/zwltDF2.png", 4607, 252, "image")
+	    myBackground.image.src = "https://i.imgur.com/RCXvLWL.png";
+		jack = new component(168, 60, "https://i.imgur.com/89QrLHQ.png", 460, 300, "image")
+		jack.newPos();
+		jack.update();
+   }
+
+   if (ralph.crashWith(jack) && scene == 8) {
+   
+   jack = new component(210, 210, "https://i.imgur.com/OmqYwWU.png", 420, 260, "image");
+   jack.newPos();
+   jack.update();
+   ralph = new component(60, 168, "https://i.imgur.com/yi64lpf.png", 360, 360, "image");
+   text2 = new component(282, 72, "https://i.imgur.com/AsceVyU.png", 249, 123, "image")
+   text2.newPos();
+   text2.update();
+
+   } else if (scene == 8) {
+   jack = new component(210, 210, "https://i.imgur.com/OmqYwWU.png", 420, 260, "image");
+   jack.newPos();
+   jack.update();
+   myBackground.image.src = "https://i.imgur.com/RCXvLWL.png";
+   }
+
+   if (ralph.crashWith(jack) && scene == 9) {
+   ralph = new component(60, 168, "https://i.imgur.com/yi64lpf.png", 100, 192, "image")
+      text2 = new component(334.5, 72, "https://i.imgur.com/2eYIXAK.png", 0, 123, "image")
+   text2.newPos();
+   text2.update();
+   } else if (scene == 9 ) {
+   text2 = new component(334.5, 72, "https://i.imgur.com/2eYIXAK.png", 0, 123, "image")
+   text2.newPos();
+   text2.update();
+   myBackground.image.src = "https://i.imgur.com/jRy4eWc.png"
+	  	jack = new component(10, 360, "rgba(255, 0, 0, 0", 160, 0);
+   jack.newPos();
+   jack.update();
+
+   }
+
+    if (ralph.crashWith(roof)) {
+	myGameArea.clear
+	ralph = new component(60, 168, "https://i.imgur.com/yi64lpf.png", 600, 360, "image");
+	  } 
+
+	if (ralph.crashWith(back)) {
+	myGameArea.clear
+	ralph = new component(60, 168, "https://i.imgur.com/Uk744Hc.png", -40, 360, "image");
+	  }  
+}
+
+function moveup() {
+if (scene >= 1) {
+scene -= 1; ralph = new component(60, 168, "https://i.imgur.com/yi64lpf.png", 36, 192, "image");
+}
+}
+
+function movedown() {
+if (scene <= 8) {
+    scene += 1; ralph = new component(60, 168, "https://i.imgur.com/yi64lpf.png", 36, -168, "image");
+}
+}
+
+
+</script>
+<script>
+function accelerate(n) {
+  ralph.gravity = n;
+}
+</script>
+
+<button onclick="moveup()">UP</button>
+<button onclick="movedown()">DOWN</button>
