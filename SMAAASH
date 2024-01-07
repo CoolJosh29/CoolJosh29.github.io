@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>
+<button id="slot1" onclick="showcards(); varslot1()" type=button>X</button>
+<button id="slot2" onclick="showcards(); varslot2()" type=button>X</button>
+<button id="slot3" onclick="showcards(); varslot3()" type=button>X</button>
+<button id="14" disabled onclick="remove14()">Ace</button>
+<button id="2" disabled onclick="remove2()">2</button>
+<button id="3" disabled onclick="remove3()">3</button>
+<br>
+<button id="slot4" onclick="showcards(); varslot4()" type=button>X</button>
+<button id="slot5" onclick="showcards(); varslot5()" type=button>X</button>
+<button id="slot6" onclick="showcards(); varslot6()" type=button>X</button>
+<button id="4" disabled onclick="remove4()">4</button>
+<button id="5" disabled onclick="remove5()">5</button>
+<button id="6" disabled onclick="remove6()">6</button>
+<br>
+<button id="slot7" onclick="showcards(); varslot7()" type=button>X</button>
+<button id="slot8" onclick="showcards(); varslot8()" type=button>X</button>
+<button id="slot9" onclick="showcards(); varslot9()" type=button>X</button>
+<button id="7" disabled onclick="remove7()">7</button>
+<button id="8" disabled onclick="remove8()">8</button>
+<button id="9" disabled onclick="remove9()">9</button>
+<button id="10" disabled onclick="remove10()">10</button>
+<br>
+<button id="slot10" disabled type=button>X</button>
+<button id="slot12" disabled type=button>X</button>
+<button id="slot13" disabled type=button>X</button>
+<button id="11" disabled onclick="remove11()">J</button>
+<button id="12" disabled onclick="remove12()">Q</button>
+<button id="13" disabled onclick="remove13()">K</button>
+
+</h1>
+<h2>
+<pre>
+<b><span id ="slot1text">0</span>     <span id="slot2text">0</span>     <span id="slot3text">0</span></b>
+<b><span id ="slot4text">0</span>     <span id="slot5text">0</span>     <span id="slot6text">0</span></b>
+<b><span id ="slot7text">0</span>     <span id="slot8text">0</span>     <span id="slot9text">0</span></b>
+</pre>
+</h2>
+<h2>
+<pre>
+<b><span id ="slot1lower">00</span>/<span id ="slot1higher">00</span>     <span id ="slot2lower">00</span>/<span id ="slot2higher">00</span>     <span id ="slot3lower">00</span>/<span id ="slot3higher">00</span>
+<b><span id ="slot4lower">00</span>/<span id ="slot4higher">00</span>     <span id ="slot5lower">00</span>/<span id ="slot5higher">00</span>     <span id ="slot6lower">00</span>/<span id ="slot6higher">00</span>
+<b><span id ="slot7lower">00</span>/<span id ="slot7higher">00</span>     <span id ="slot8lower">00</span>/<span id ="slot8higher">00</span>     <span id ="slot9lower">00</span>/<span id ="slot9higher">00</span>
+</pre>
+</h2>
+</body>
+
+<script>
+var card2 = 4
+var card3 = 4
+var card4 = 4
+var card5 = 4
+var card6 = 4
+var card7 = 4
+var card8 = 4
+var card9 = 4
+var card10 = 4
+var card11 = 4
+var card12 = 4
+var card13 = 4
+var card14 = 4
+
+function varslot1() {
+  slot = 1;
+}
+function varslot2() {
+  slot = 2;
+}
+function varslot3() {
+  slot = 3;
+}
+function varslot4() {
+  slot = 4;
+}
+function varslot5() {
+  slot = 5;
+}
+function varslot6() {
+  slot = 6;
+}
+function varslot7() {
+  slot = 7;
+}
+function varslot8() {
+  slot = 8;
+}
+function varslot9() {
+  slot = 9;
+}
+function remove2() {
+  hidecards();
+  card2 -=1;
+  if (slot == 1) {
+  slot1 = 2
+  document.getElementById("slot1text").innerHTML = slot1
+  }
+  if (slot == 2) {
+  slot2 = 2
+  document.getElementById("slot2text").innerHTML = slot2
+  }
+  if (slot == 3) {
+  slot3 = 2
+  document.getElementById("slot3text").innerHTML = slot3
+  }
+  if (slot == 4) {
+  slot4 = 2
+  document.getElementById("slot4text").innerHTML = slot4
+  }
+  if (slot == 5) {
+  slot5 = 2
+  document.getElementById("slot5text").innerHTML = slot5
+  }
+  if (slot == 6) {
+  slot6 = 2
+  document.getElementById("slot6text").innerHTML = slot6
+  }
+  if (slot == 7) {
+  slot7 = 2
+  document.getElementById("slot7text").innerHTML = slot7
+  }
+  if (slot == 8) {
+  slot8 = 2
+  document.getElementById("slot8text").innerHTML = slot8
+  }
+  if (slot == 9) {
+  slot9 = 2
+  document.getElementById("slot9text").innerHTML = slot9
+  }
+  countcards();
+}
+function remove3() {
+  hidecards();
+  card3 -=1;
+  if (slot == 1) {
+  slot1 = 3
+  document.getElementById("slot1text").innerHTML = slot1
+  }
+  if (slot == 2) {
+  slot2 = 3
+  document.getElementById("slot2text").innerHTML = slot2
+  }
+  if (slot == 3) {
+  slot3 = 3
+  document.getElementById("slot3text").innerHTML = slot3
+  }
+  if (slot == 4) {
+  slot4 = 3
+  document.getElementById("slot4text").innerHTML = slot4
+  }
+  if (slot == 5) {
+  slot5 = 3
+  document.getElementById("slot5text").innerHTML = slot5
+  }
+  if (slot == 6) {
+  slot6 = 3
+  document.getElementById("slot6text").innerHTML = slot6
+  }
+  if (slot == 7) {
+  slot7 = 3
+  document.getElementById("slot7text").innerHTML = slot7
+  }
+  if (slot == 8) {
+  slot8 = 3
+  document.getElementById("slot8text").innerHTML = slot8
+  }
+  if (slot == 9) {
+  slot9 = 3
+  document.getElementById("slot9text").innerHTML = slot9
+  }
+  countcards();
+}
+function remove4() {
+  hidecards();
+  card4 -=1;
+  if (slot == 1) {
+  slot1 = 4
+  document.getElementById("slot1text").innerHTML = slot1
+  }
+  if (slot == 2) {
+  slot2 = 4
+  document.getElementById("slot2text").innerHTML = slot2
+  }
+  if (slot == 3) {
+  slot3 = 4
+  document.getElementById("slot3text").innerHTML = slot3
+  }
+  if (slot == 4) {
+  slot4 = 4
+  document.getElementById("slot4text").innerHTML = slot4
+  }
+  if (slot == 5) {
+  slot5 = 4
+  document.getElementById("slot5text").innerHTML = slot5
+  }
+  if (slot == 6) {
+  slot6 = 4
+  document.getElementById("slot6text").innerHTML = slot6
+  }
+  if (slot == 7) {
+  slot7 = 4
+  document.getElementById("slot7text").innerHTML = slot7
+  }
+  if (slot == 8) {
+  slot8 = 4
+  document.getElementById("slot8text").innerHTML = slot8
+  }
+  if (slot == 9) {
+  slot9 = 4
+  document.getElementById("slot9text").innerHTML = slot9
+  }
+  countcards();
+}
+function remove5() {
+  hidecards();
+  card5 -=1;
+  if (slot == 1) {
+  slot1 = 5
+  document.getElementById("slot1text").innerHTML = slot1
+  }
+  if (slot == 2) {
+  slot2 = 5
+  document.getElementById("slot2text").innerHTML = slot2
+  }
+  if (slot == 3) {
+  slot3 = 5
+  document.getElementById("slot3text").innerHTML = slot3
+  }
+  if (slot == 4) {
+  slot4 = 5
+  document.getElementById("slot4text").innerHTML = slot4
+  }
+  if (slot == 5) {
+  slot5 = 5
+  document.getElementById("slot5text").innerHTML = slot5
+  }
+  if (slot == 6) {
+  slot6 = 5
+  document.getElementById("slot6text").innerHTML = slot6
+  }
+  if (slot == 7) {
+  slot7 = 5
+  document.getElementById("slot7text").innerHTML = slot7
+  }
+  if (slot == 8) {
+  slot8 = 5
+  document.getElementById("slot8text").innerHTML = slot8
+  }
+  if (slot == 9) {
+  slot9 = 5
+  document.getElementById("slot9text").innerHTML = slot9
+  }
+  countcards();
+}
+function remove6() {
+  hidecards();
+  card6 -=1;
+  if (slot == 1) {
+  slot1 = 6
+  document.getElementById("slot1text").innerHTML = slot1
+  }
+  if (slot == 2) {
+  slot2 = 6
+  document.getElementById("slot2text").innerHTML = slot2
+  }
+  if (slot == 3) {
+  slot3 = 6
+  document.getElementById("slot3text").innerHTML = slot3
+  }
+  if (slot == 4) {
+  slot4 = 6
+  document.getElementById("slot4text").innerHTML = slot4
+  }
+  if (slot == 5) {
+  slot5 = 6
+  document.getElementById("slot5text").innerHTML = slot5
+  }
+  if (slot == 6) {
+  slot6 = 6
+  document.getElementById("slot6text").innerHTML = slot6
+  }
+  if (slot == 7) {
+  slot7 = 6
+  document.getElementById("slot7text").innerHTML = slot7
+  }
+  if (slot == 8) {
+  slot8 = 6
+  document.getElementById("slot8text").innerHTML = slot8
+  }
+  if (slot == 9) {
+  slot9 = 6
+  document.getElementById("slot9text").innerHTML = slot9
+  }
+  countcards();
+}
+function remove7() {
+  hidecards();
+  card7 -=1;
+  if (slot == 1) {
+  slot1 = 7
+  document.getElementById("slot1text").innerHTML = slot1
+  }
+  if (slot == 2) {
+  slot2 = 7
+  document.getElementById("slot2text").innerHTML = slot2
+  }
+  if (slot == 3) {
+  slot3 = 7
+  document.getElementById("slot3text").innerHTML = slot3
+  }
+  if (slot == 4) {
+  slot4 = 7
+  document.getElementById("slot4text").innerHTML = slot4
+  }
+  if (slot == 5) {
+  slot5 = 7
+  document.getElementById("slot5text").innerHTML = slot5
+  }
+  if (slot == 6) {
+  slot6 = 7
+  document.getElementById("slot6text").innerHTML = slot6
+  }
+  if (slot == 7) {
+  slot7 = 7
+  document.getElementById("slot7text").innerHTML = slot7
+  }
+  if (slot == 8) {
+  slot8 = 7
+  document.getElementById("slot8text").innerHTML = slot8
+  }
+  if (slot == 9) {
+  slot9 = 7
+  document.getElementById("slot9text").innerHTML = slot9
+  }
+  countcards();
+}
+function remove8() {
+  hidecards();
+  card8 -=1;
+  if (slot == 1) {
+  slot1 = 8
+  document.getElementById("slot1text").innerHTML = slot1
+  }
+  if (slot == 2) {
+  slot2 = 8
+  document.getElementById("slot2text").innerHTML = slot2
+  }
+  if (slot == 3) {
+  slot3 = 8
+  document.getElementById("slot3text").innerHTML = slot3
+  }
+  if (slot == 4) {
+  slot4 = 8
+  document.getElementById("slot4text").innerHTML = slot4
+  }
+  if (slot == 5) {
+  slot5 = 8
+  document.getElementById("slot5text").innerHTML = slot5
+  }
+  if (slot == 6) {
+  slot6 = 8
+  document.getElementById("slot6text").innerHTML = slot6
+  }
+  if (slot == 7) {
+  slot7 = 8
+  document.getElementById("slot7text").innerHTML = slot7
+  }
+  if (slot == 8) {
+  slot8 = 8
+  document.getElementById("slot8text").innerHTML = slot8
+  }
+  if (slot == 9) {
+  slot9 = 8
+  document.getElementById("slot9text").innerHTML = slot9
+  }
+  countcards();
+}
+function remove9() {
+  hidecards();
+  card9 -=1;
+  if (slot == 1) {
+  slot1 = 9
+  document.getElementById("slot1text").innerHTML = slot1
+  }
+  if (slot == 2) {
+  slot2 = 9
+  document.getElementById("slot2text").innerHTML = slot2
+  }
+  if (slot == 3) {
+  slot3 = 9
+  document.getElementById("slot3text").innerHTML = slot3
+  }
+  if (slot == 4) {
+  slot4 = 9
+  document.getElementById("slot4text").innerHTML = slot4
+  }
+  if (slot == 5) {
+  slot5 = 9
+  document.getElementById("slot5text").innerHTML = slot5
+  }
+  if (slot == 6) {
+  slot6 = 9
+  document.getElementById("slot6text").innerHTML = slot6
+  }
+  if (slot == 7) {
+  slot7 = 9
+  document.getElementById("slot7text").innerHTML = slot7
+  }
+  if (slot == 8) {
+  slot8 = 9
+  document.getElementById("slot8text").innerHTML = slot8
+  }
+  if (slot == 9) {
+  slot9 = 9
+  document.getElementById("slot9text").innerHTML = slot9
+  }
+  countcards();
+}
+function remove10() {
+  hidecards();
+  card10 -=1;
+  if (slot == 1) {
+  slot1 = 10
+  document.getElementById("slot1text").innerHTML = slot1
+  }
+  if (slot == 2) {
+  slot2 = 10
+  document.getElementById("slot2text").innerHTML = slot2
+  }
+  if (slot == 3) {
+  slot3 = 10
+  document.getElementById("slot3text").innerHTML = slot3
+  }
+  if (slot == 4) {
+  slot4 = 10
+  document.getElementById("slot4text").innerHTML = slot4
+  }
+  if (slot == 5) {
+  slot5 = 10
+  document.getElementById("slot5text").innerHTML = slot5
+  }
+  if (slot == 6) {
+  slot6 = 10
+  document.getElementById("slot6text").innerHTML = slot6
+  }
+  if (slot == 7) {
+  slot7 = 10
+  document.getElementById("slot7text").innerHTML = slot7
+  }
+  if (slot == 8) {
+  slot8 = 10
+  document.getElementById("slot8text").innerHTML = slot8
+  }
+  if (slot == 9) {
+  slot9 = 10
+  document.getElementById("slot9text").innerHTML = slot9
+  }
+  countcards();
+}
+function remove11() {
+  hidecards();
+  card11 -=1;
+  if (slot == 1) {
+  slot1 = 11
+  document.getElementById("slot1text").innerHTML = "J"
+  }
+  if (slot == 2) {
+  slot2 = 11
+  document.getElementById("slot2text").innerHTML = "J"
+  }
+  if (slot == 3) {
+  slot3 = 11
+  document.getElementById("slot3text").innerHTML = "J"
+  }
+  if (slot == 4) {
+  slot4 = 11
+  document.getElementById("slot4text").innerHTML = "J"
+  }
+  if (slot == 5) {
+  slot5 = 11
+  document.getElementById("slot5text").innerHTML = "J"
+  }
+  if (slot == 6) {
+  slot6 = 11
+  document.getElementById("slot6text").innerHTML = "J"
+  }
+  if (slot == 7) {
+  slot7 = 11
+  document.getElementById("slot7text").innerHTML = "J"
+  }
+  if (slot == 8) {
+  slot8 = 11
+  document.getElementById("slot8text").innerHTML = "J"
+  }
+  if (slot == 9) {
+  slot9 = 11
+  document.getElementById("slot9text").innerHTML = "J"
+  }
+  countcards();
+}
+function remove12() {
+  hidecards();
+  card12 -=1;
+  if (slot == 1) {
+  slot1 = 12
+  document.getElementById("slot1text").innerHTML = "Q"
+  }
+  if (slot == 2) {
+  slot2 = 12
+  document.getElementById("slot2text").innerHTML = "Q"
+  }
+  if (slot == 3) {
+  slot3 = 12
+  document.getElementById("slot3text").innerHTML = "Q"
+  }
+  if (slot == 4) {
+  slot4 = 12
+  document.getElementById("slot4text").innerHTML = "Q"
+  }
+  if (slot == 5) {
+  slot5 = 12
+  document.getElementById("slot5text").innerHTML = "Q"
+  }
+  if (slot == 6) {
+  slot6 = 12
+  document.getElementById("slot6text").innerHTML = "Q"
+  }
+  if (slot == 7) {
+  slot7 = 12
+  document.getElementById("slot7text").innerHTML = "Q"
+  }
+  if (slot == 8) {
+  slot8 = 12
+  document.getElementById("slot8text").innerHTML = "Q"
+  }
+  if (slot == 9) {
+  slot9 = 12
+  document.getElementById("slot9text").innerHTML = "Q"
+  }
+  countcards();
+}
+function remove13() {
+  hidecards();
+  card13 -=1;
+  if (slot == 1) {
+  slot1 = 13
+  document.getElementById("slot1text").innerHTML = "K"
+  }
+  if (slot == 2) {
+  slot2 = 13
+  document.getElementById("slot2text").innerHTML = "K"
+  }
+  if (slot == 3) {
+  slot3 = 13
+  document.getElementById("slot3text").innerHTML = "K"
+  }
+  if (slot == 4) {
+  slot4 = 13
+  document.getElementById("slot4text").innerHTML = "K"
+  }
+  if (slot == 5) {
+  slot5 = 13
+  document.getElementById("slot5text").innerHTML = "K"
+  }
+  if (slot == 6) {
+  slot6 = 13
+  document.getElementById("slot6text").innerHTML = "K"
+  }
+  if (slot == 7) {
+  slot7 = 13
+  document.getElementById("slot7text").innerHTML = "K"
+  }
+  if (slot == 8) {
+  slot8 = 13
+  document.getElementById("slot8text").innerHTML = "K"
+  }
+  if (slot == 9) {
+  slot9 = 13
+  document.getElementById("slot9text").innerHTML = "K"
+  }
+  countcards();
+}
+function remove14() {
+  hidecards();
+  card14 -=1;
+  if (slot == 1) {
+  slot1 = 14
+  document.getElementById("slot1text").innerHTML = "A"
+  }
+  if (slot == 2) {
+  slot2 = 14
+  document.getElementById("slot2text").innerHTML = "A"
+  }
+  if (slot == 3) {
+  slot3 = 14
+  document.getElementById("slot3text").innerHTML = "A"
+  }
+  if (slot == 4) {
+  slot4 = 14
+  document.getElementById("slot4text").innerHTML = "A"
+  }
+  if (slot == 5) {
+  slot5 = 14
+  document.getElementById("slot5text").innerHTML = "A"
+  }
+  if (slot == 6) {
+  slot6 = 14
+  document.getElementById("slot6text").innerHTML = "A"
+  }
+  if (slot == 7) {
+  slot7 = 14
+  document.getElementById("slot7text").innerHTML = "A"
+  }
+  if (slot == 8) {
+  slot8 = 14
+  document.getElementById("slot8text").innerHTML = "A"
+  }
+  if (slot == 9) {
+  slot9 = 14
+  document.getElementById("slot9text").innerHTML = "A"
+  }
+  countcards();
+}
+function countcards() {
+  higher2 = card3 + card4 + card5 + card6 + card7 + card8 + card9 + card10 + card11 + card12 + card13 + card14;
+  lower2 = 00;
+  higher3 = card4 + card5 + card6 + card7 + card8 + card9 + card10 + card11 + card12 + card13 + card14;
+  lower3 = card2;
+  higher4 = card5 + card6 + card7 + card8 + card9 + card10 + card11 + card12 + card13 + card14;
+  lower4 = card2 + card3;
+  higher5 = card6 + card7 + card8 + card9 + card10 + card11 + card12 + card13 + card14;
+  lower5 = card2 + card3 + card4;
+  higher6 = card7 + card8 + card9 + card10 + card11 + card12 + card13 + card14;
+  lower6 = card2 + card3 + card4 + card5;
+  higher7 = card8 + card9 + card10 + card11 + card12 + card13 + card14;
+  lower7 = card2 + card3 + card4 + card5 + card6;
+  higher8 = card9 + card10 + card11 + card12 + card13 + card14;
+  lower8 = card2 + card3 + card4 + card5 + card6 + card7;
+  higher9 = card10 + card11 + card12 + card13 + card14;
+  lower9 = card2 + card3 + card4 + card5 + card6 + card7 + card8;
+  higher10 = card11 + card12 + card13 + card14;
+  lower10 = card2 + card3 + card4 + card5 + card6 + card7 + card8 + card9;
+  higher11 = card12 + card13 + card14;
+  lower11 = card2 + card3 + card4 + card5 + card6 + card7 + card8 + card9 + card10;
+  higher12 = card13 + card14;
+  lower12 = card2 + card3 + card4 + card5 + card6 + card7 + card8 + card9 + card10 + card11;
+  higher13 = card14;
+  lower13 = card2 + card3 + card4 + card5 + card6 + card7 + card8 + card9 + card10 + card11 + card12;
+  higher14 = 00;
+  lower14 = card2 + card3 + card4 + card5 + card6 + card7 + card8 + card9 + card10 + card11 + card12 + card13;
+  
+  if (slot1 == 2) {
+  document.getElementById("slot1lower").innerHTML = lower2
+  document.getElementById("slot1higher").innerHTML = higher2
+  }
+  if (slot1 == 3) {
+  document.getElementById("slot1lower").innerHTML = lower3
+  document.getElementById("slot1higher").innerHTML = higher3
+  }
+  if (slot1 == 4) {
+  document.getElementById("slot1lower").innerHTML = lower4
+  document.getElementById("slot1higher").innerHTML = higher4
+  }
+  if (slot1 == 5) {
+  document.getElementById("slot1lower").innerHTML = lower5
+  document.getElementById("slot1higher").innerHTML = higher5
+  }
+  if (slot1 == 6) {
+  document.getElementById("slot1lower").innerHTML = lower6
+  document.getElementById("slot1higher").innerHTML = higher6
+  }
+  if (slot1 == 7) {
+  document.getElementById("slot1lower").innerHTML = lower7
+  document.getElementById("slot1higher").innerHTML = higher7
+  }
+  if (slot1 == 8) {
+  document.getElementById("slot1lower").innerHTML = lower8
+  document.getElementById("slot1higher").innerHTML = higher8
+  }
+  if (slot1 == 9) {
+  document.getElementById("slot1lower").innerHTML = lower9
+  document.getElementById("slot1higher").innerHTML = higher9
+  }
+  if (slot1 == 10) {
+  document.getElementById("slot1lower").innerHTML = lower10
+  document.getElementById("slot1higher").innerHTML = higher10
+  }
+  if (slot1 == 11) {
+  document.getElementById("slot1lower").innerHTML = lower11
+  document.getElementById("slot1higher").innerHTML = higher11
+  }
+  if (slot1 == 12) {
+  document.getElementById("slot1lower").innerHTML = lower12
+  document.getElementById("slot1higher").innerHTML = higher12
+  }
+  if (slot1 == 13) {
+  document.getElementById("slot1lower").innerHTML = lower13
+  document.getElementById("slot1higher").innerHTML = higher13
+  }
+  if (slot1 == 14) {
+  document.getElementById("slot1lower").innerHTML = lower14
+  document.getElementById("slot1higher").innerHTML = higher14
+  }
+  if (slot2 == 2) {
+  document.getElementById("slot2lower").innerHTML = lower2
+  document.getElementById("slot2higher").innerHTML = higher2
+  }
+  if (slot2 == 3) {
+  document.getElementById("slot2lower").innerHTML = lower3
+  document.getElementById("slot2higher").innerHTML = higher3
+  }
+  if (slot2 == 4) {
+  document.getElementById("slot2lower").innerHTML = lower4
+  document.getElementById("slot2higher").innerHTML = higher4
+  }
+  if (slot2 == 5) {
+  document.getElementById("slot2lower").innerHTML = lower5
+  document.getElementById("slot2higher").innerHTML = higher5
+  }
+  if (slot2 == 6) {
+  document.getElementById("slot2lower").innerHTML = lower6
+  document.getElementById("slot2higher").innerHTML = higher6
+  }
+  if (slot2 == 7) {
+  document.getElementById("slot2lower").innerHTML = lower7
+  document.getElementById("slot2higher").innerHTML = higher7
+  }
+  if (slot2 == 8) {
+  document.getElementById("slot2lower").innerHTML = lower8
+  document.getElementById("slot2higher").innerHTML = higher8
+  }
+  if (slot2 == 9) {
+  document.getElementById("slot2lower").innerHTML = lower9
+  document.getElementById("slot2higher").innerHTML = higher9
+  }
+  if (slot2 == 10) {
+  document.getElementById("slot2lower").innerHTML = lower10
+  document.getElementById("slot2higher").innerHTML = higher10
+  }
+  if (slot2 == 11) {
+  document.getElementById("slot2lower").innerHTML = lower11
+  document.getElementById("slot2higher").innerHTML = higher11
+  }
+  if (slot2 == 12) {
+  document.getElementById("slot2lower").innerHTML = lower12
+  document.getElementById("slot2higher").innerHTML = higher12
+  }
+  if (slot2 == 13) {
+  document.getElementById("slot2lower").innerHTML = lower13
+  document.getElementById("slot2higher").innerHTML = higher13
+  }
+  if (slot2 == 14) {
+  document.getElementById("slot2lower").innerHTML = lower14
+  document.getElementById("slot2higher").innerHTML = higher14
+  }
+  if (slot3 == 2) {
+  document.getElementById("slot3lower").innerHTML = lower2
+  document.getElementById("slot3higher").innerHTML = higher2
+  }
+  if (slot3 == 3) {
+  document.getElementById("slot3lower").innerHTML = lower3
+  document.getElementById("slot3higher").innerHTML = higher3
+  }
+  if (slot3 == 4) {
+  document.getElementById("slot3lower").innerHTML = lower4
+  document.getElementById("slot3higher").innerHTML = higher4
+  }
+  if (slot3 == 5) {
+  document.getElementById("slot3lower").innerHTML = lower5
+  document.getElementById("slot3higher").innerHTML = higher5
+  }
+  if (slot3 == 6) {
+  document.getElementById("slot3lower").innerHTML = lower6
+  document.getElementById("slot3higher").innerHTML = higher6
+  }
+  if (slot3 == 7) {
+  document.getElementById("slot3lower").innerHTML = lower7
+  document.getElementById("slot3higher").innerHTML = higher7
+  }
+  if (slot3 == 8) {
+  document.getElementById("slot3lower").innerHTML = lower8
+  document.getElementById("slot3higher").innerHTML = higher8
+  }
+  if (slot3 == 9) {
+  document.getElementById("slot3lower").innerHTML = lower9
+  document.getElementById("slot3higher").innerHTML = higher9
+  }
+  if (slot3 == 10) {
+  document.getElementById("slot3lower").innerHTML = lower10
+  document.getElementById("slot3higher").innerHTML = higher10
+  }
+  if (slot3 == 11) {
+  document.getElementById("slot3lower").innerHTML = lower11
+  document.getElementById("slot3higher").innerHTML = higher11
+  }
+  if (slot3 == 12) {
+  document.getElementById("slot3lower").innerHTML = lower12
+  document.getElementById("slot3higher").innerHTML = higher12
+  }
+  if (slot3 == 13) {
+  document.getElementById("slot3lower").innerHTML = lower13
+  document.getElementById("slot3higher").innerHTML = higher13
+  }
+  if (slot3 == 14) {
+  document.getElementById("slot3lower").innerHTML = lower14
+  document.getElementById("slot3higher").innerHTML = higher14
+  }
+  if (slot4 == 2) {
+  document.getElementById("slot4lower").innerHTML = lower2
+  document.getElementById("slot4higher").innerHTML = higher2
+  }
+  if (slot4 == 3) {
+  document.getElementById("slot4lower").innerHTML = lower3
+  document.getElementById("slot4higher").innerHTML = higher3
+  }
+  if (slot4 == 4) {
+  document.getElementById("slot4lower").innerHTML = lower4
+  document.getElementById("slot4higher").innerHTML = higher4
+  }
+  if (slot4 == 5) {
+  document.getElementById("slot4lower").innerHTML = lower5
+  document.getElementById("slot4higher").innerHTML = higher5
+  }
+  if (slot4 == 6) {
+  document.getElementById("slot4lower").innerHTML = lower6
+  document.getElementById("slot4higher").innerHTML = higher6
+  }
+  if (slot4 == 7) {
+  document.getElementById("slot4lower").innerHTML = lower7
+  document.getElementById("slot4higher").innerHTML = higher7
+  }
+  if (slot4 == 8) {
+  document.getElementById("slot4lower").innerHTML = lower8
+  document.getElementById("slot4higher").innerHTML = higher8
+  }
+  if (slot4 == 9) {
+  document.getElementById("slot4lower").innerHTML = lower9
+  document.getElementById("slot4higher").innerHTML = higher9
+  }
+  if (slot4 == 10) {
+  document.getElementById("slot4lower").innerHTML = lower10
+  document.getElementById("slot4higher").innerHTML = higher10
+  }
+  if (slot4 == 11) {
+  document.getElementById("slot4lower").innerHTML = lower11
+  document.getElementById("slot4higher").innerHTML = higher11
+  }
+  if (slot4 == 12) {
+  document.getElementById("slot4lower").innerHTML = lower12
+  document.getElementById("slot4higher").innerHTML = higher12
+  }
+  if (slot4 == 13) {
+  document.getElementById("slot4lower").innerHTML = lower13
+  document.getElementById("slot4higher").innerHTML = higher13
+  }
+  if (slot4 == 14) {
+  document.getElementById("slot4lower").innerHTML = lower14
+  document.getElementById("slot4higher").innerHTML = higher14
+  }
+  if (slot5 == 2) {
+  document.getElementById("slot5lower").innerHTML = lower2
+  document.getElementById("slot5higher").innerHTML = higher2
+  }
+  if (slot5 == 3) {
+  document.getElementById("slot5lower").innerHTML = lower3
+  document.getElementById("slot5higher").innerHTML = higher3
+  }
+  if (slot5 == 4) {
+  document.getElementById("slot5lower").innerHTML = lower4
+  document.getElementById("slot5higher").innerHTML = higher4
+  }
+  if (slot5 == 5) {
+  document.getElementById("slot5lower").innerHTML = lower5
+  document.getElementById("slot5higher").innerHTML = higher5
+  }
+  if (slot5 == 6) {
+  document.getElementById("slot5lower").innerHTML = lower6
+  document.getElementById("slot5higher").innerHTML = higher6
+  }
+  if (slot5 == 7) {
+  document.getElementById("slot5lower").innerHTML = lower7
+  document.getElementById("slot5higher").innerHTML = higher7
+  }
+  if (slot5 == 8) {
+  document.getElementById("slot5lower").innerHTML = lower8
+  document.getElementById("slot5higher").innerHTML = higher8
+  }
+  if (slot5 == 9) {
+  document.getElementById("slot5lower").innerHTML = lower9
+  document.getElementById("slot5higher").innerHTML = higher9
+  }
+  if (slot5 == 10) {
+  document.getElementById("slot5lower").innerHTML = lower10
+  document.getElementById("slot5higher").innerHTML = higher10
+  }
+  if (slot5 == 11) {
+  document.getElementById("slot5lower").innerHTML = lower11
+  document.getElementById("slot5higher").innerHTML = higher11
+  }
+  if (slot5 == 12) {
+  document.getElementById("slot5lower").innerHTML = lower12
+  document.getElementById("slot5higher").innerHTML = higher12
+  }
+  if (slot5 == 13) {
+  document.getElementById("slot5lower").innerHTML = lower13
+  document.getElementById("slot5higher").innerHTML = higher13
+  }
+  if (slot5 == 14) {
+  document.getElementById("slot5lower").innerHTML = lower14
+  document.getElementById("slot5higher").innerHTML = higher14
+  }
+  if (slot6 == 2) {
+  document.getElementById("slot6lower").innerHTML = lower2
+  document.getElementById("slot6higher").innerHTML = higher2
+  }
+  if (slot6 == 3) {
+  document.getElementById("slot6lower").innerHTML = lower3
+  document.getElementById("slot6higher").innerHTML = higher3
+  }
+  if (slot6 == 4) {
+  document.getElementById("slot6lower").innerHTML = lower4
+  document.getElementById("slot6higher").innerHTML = higher4
+  }
+  if (slot6 == 5) {
+  document.getElementById("slot6lower").innerHTML = lower5
+  document.getElementById("slot6higher").innerHTML = higher5
+  }
+  if (slot6 == 6) {
+  document.getElementById("slot6lower").innerHTML = lower6
+  document.getElementById("slot6higher").innerHTML = higher6
+  }
+  if (slot6 == 7) {
+  document.getElementById("slot6lower").innerHTML = lower7
+  document.getElementById("slot6higher").innerHTML = higher7
+  }
+  if (slot6 == 8) {
+  document.getElementById("slot6lower").innerHTML = lower8
+  document.getElementById("slot6higher").innerHTML = higher8
+  }
+  if (slot6 == 9) {
+  document.getElementById("slot6lower").innerHTML = lower9
+  document.getElementById("slot6higher").innerHTML = higher9
+  }
+  if (slot6 == 10) {
+  document.getElementById("slot6lower").innerHTML = lower10
+  document.getElementById("slot6higher").innerHTML = higher10
+  }
+  if (slot6 == 11) {
+  document.getElementById("slot6lower").innerHTML = lower11
+  document.getElementById("slot6higher").innerHTML = higher11
+  }
+  if (slot6 == 12) {
+  document.getElementById("slot6lower").innerHTML = lower12
+  document.getElementById("slot6higher").innerHTML = higher12
+  }
+  if (slot6 == 13) {
+  document.getElementById("slot6lower").innerHTML = lower13
+  document.getElementById("slot6higher").innerHTML = higher13
+  }
+  if (slot6 == 14) {
+  document.getElementById("slot6lower").innerHTML = lower14
+  document.getElementById("slot6higher").innerHTML = higher14
+  }
+  if (slot7 == 2) {
+  document.getElementById("slot7lower").innerHTML = lower2
+  document.getElementById("slot7higher").innerHTML = higher2
+  }
+  if (slot7 == 3) {
+  document.getElementById("slot7lower").innerHTML = lower3
+  document.getElementById("slot7higher").innerHTML = higher3
+  }
+  if (slot7 == 4) {
+  document.getElementById("slot7lower").innerHTML = lower4
+  document.getElementById("slot7higher").innerHTML = higher4
+  }
+  if (slot7 == 5) {
+  document.getElementById("slot7lower").innerHTML = lower5
+  document.getElementById("slot7higher").innerHTML = higher5
+  }
+  if (slot7 == 6) {
+  document.getElementById("slot7lower").innerHTML = lower6
+  document.getElementById("slot7higher").innerHTML = higher6
+  }
+  if (slot7 == 7) {
+  document.getElementById("slot7lower").innerHTML = lower7
+  document.getElementById("slot7higher").innerHTML = higher7
+  }
+  if (slot7 == 8) {
+  document.getElementById("slot7lower").innerHTML = lower8
+  document.getElementById("slot7higher").innerHTML = higher8
+  }
+  if (slot7 == 9) {
+  document.getElementById("slot7lower").innerHTML = lower9
+  document.getElementById("slot7higher").innerHTML = higher9
+  }
+  if (slot7 == 10) {
+  document.getElementById("slot7lower").innerHTML = lower10
+  document.getElementById("slot7higher").innerHTML = higher10
+  }
+  if (slot7 == 11) {
+  document.getElementById("slot7lower").innerHTML = lower11
+  document.getElementById("slot7higher").innerHTML = higher11
+  }
+  if (slot7 == 12) {
+  document.getElementById("slot7lower").innerHTML = lower12
+  document.getElementById("slot7higher").innerHTML = higher12
+  }
+  if (slot7 == 13) {
+  document.getElementById("slot7lower").innerHTML = lower13
+  document.getElementById("slot7higher").innerHTML = higher13
+  }
+  if (slot7 == 14) {
+  document.getElementById("slot7lower").innerHTML = lower14
+  document.getElementById("slot7higher").innerHTML = higher14
+  }
+  if (slot8 == 2) {
+  document.getElementById("slot8lower").innerHTML = lower2
+  document.getElementById("slot8higher").innerHTML = higher2
+  }
+  if (slot8 == 3) {
+  document.getElementById("slot8lower").innerHTML = lower3
+  document.getElementById("slot8higher").innerHTML = higher3
+  }
+  if (slot8 == 4) {
+  document.getElementById("slot8lower").innerHTML = lower4
+  document.getElementById("slot8higher").innerHTML = higher4
+  }
+  if (slot8 == 5) {
+  document.getElementById("slot8lower").innerHTML = lower5
+  document.getElementById("slot8higher").innerHTML = higher5
+  }
+  if (slot8 == 6) {
+  document.getElementById("slot8lower").innerHTML = lower6
+  document.getElementById("slot8higher").innerHTML = higher6
+  }
+  if (slot8 == 7) {
+  document.getElementById("slot8lower").innerHTML = lower7
+  document.getElementById("slot8higher").innerHTML = higher7
+  }
+  if (slot8 == 8) {
+  document.getElementById("slot8lower").innerHTML = lower8
+  document.getElementById("slot8higher").innerHTML = higher8
+  }
+  if (slot8 == 9) {
+  document.getElementById("slot8lower").innerHTML = lower9
+  document.getElementById("slot8higher").innerHTML = higher9
+  }
+  if (slot8 == 10) {
+  document.getElementById("slot8lower").innerHTML = lower10
+  document.getElementById("slot8higher").innerHTML = higher10
+  }
+  if (slot8 == 11) {
+  document.getElementById("slot8lower").innerHTML = lower11
+  document.getElementById("slot8higher").innerHTML = higher11
+  }
+  if (slot8 == 12) {
+  document.getElementById("slot8lower").innerHTML = lower12
+  document.getElementById("slot8higher").innerHTML = higher12
+  }
+  if (slot8 == 13) {
+  document.getElementById("slot8lower").innerHTML = lower13
+  document.getElementById("slot8higher").innerHTML = higher13
+  }
+  if (slot8 == 14) {
+  document.getElementById("slot8lower").innerHTML = lower14
+  document.getElementById("slot8higher").innerHTML = higher14
+  }
+  if (slot9 == 2) {
+  document.getElementById("slot9lower").innerHTML = lower2
+  document.getElementById("slot9higher").innerHTML = higher2
+  }
+  if (slot9 == 3) {
+  document.getElementById("slot9lower").innerHTML = lower3
+  document.getElementById("slot9higher").innerHTML = higher3
+  }
+  if (slot9 == 4) {
+  document.getElementById("slot9lower").innerHTML = lower4
+  document.getElementById("slot9higher").innerHTML = higher4
+  }
+  if (slot9 == 5) {
+  document.getElementById("slot9lower").innerHTML = lower5
+  document.getElementById("slot9higher").innerHTML = higher5
+  }
+  if (slot9 == 6) {
+  document.getElementById("slot9lower").innerHTML = lower6
+  document.getElementById("slot9higher").innerHTML = higher6
+  }
+  if (slot9 == 7) {
+  document.getElementById("slot9lower").innerHTML = lower7
+  document.getElementById("slot9higher").innerHTML = higher7
+  }
+  if (slot9 == 8) {
+  document.getElementById("slot9lower").innerHTML = lower8
+  document.getElementById("slot9higher").innerHTML = higher8
+  }
+  if (slot9 == 9) {
+  document.getElementById("slot9lower").innerHTML = lower9
+  document.getElementById("slot9higher").innerHTML = higher9
+  }
+  if (slot9 == 10) {
+  document.getElementById("slot9lower").innerHTML = lower10
+  document.getElementById("slot9higher").innerHTML = higher10
+  }
+  if (slot9 == 11) {
+  document.getElementById("slot9lower").innerHTML = lower11
+  document.getElementById("slot9higher").innerHTML = higher11
+  }
+  if (slot9 == 12) {
+  document.getElementById("slot9lower").innerHTML = lower12
+  document.getElementById("slot9higher").innerHTML = higher12
+  }
+  if (slot9 == 13) {
+  document.getElementById("slot9lower").innerHTML = lower13
+  document.getElementById("slot9higher").innerHTML = higher13
+  }
+  if (slot9 == 14) {
+  document.getElementById("slot9lower").innerHTML = lower14
+  document.getElementById("slot9higher").innerHTML = higher14
+  }
+}
+function showcards() {
+  document.getElementById("2").removeAttribute("disabled");
+  document.getElementById("3").removeAttribute("disabled");
+  document.getElementById("4").removeAttribute("disabled");
+  document.getElementById("5").removeAttribute("disabled");
+  document.getElementById("6").removeAttribute("disabled");
+  document.getElementById("7").removeAttribute("disabled");
+  document.getElementById("8").removeAttribute("disabled");
+  document.getElementById("9").removeAttribute("disabled");
+  document.getElementById("10").removeAttribute("disabled");
+  document.getElementById("11").removeAttribute("disabled");
+  document.getElementById("12").removeAttribute("disabled");
+  document.getElementById("13").removeAttribute("disabled");
+  document.getElementById("14").removeAttribute("disabled");
+}
+function hidecards() {
+  document.getElementById("2").setAttribute("disabled", "1");
+  document.getElementById("3").setAttribute("disabled", "1");
+  document.getElementById("4").setAttribute("disabled", "1");
+  document.getElementById("5").setAttribute("disabled", "1");
+  document.getElementById("6").setAttribute("disabled", "1");
+  document.getElementById("7").setAttribute("disabled", "1");
+  document.getElementById("8").setAttribute("disabled", "1");
+  document.getElementById("9").setAttribute("disabled", "1");
+  document.getElementById("10").setAttribute("disabled", "1");
+  document.getElementById("11").setAttribute("disabled", "1");
+  document.getElementById("12").setAttribute("disabled", "1");
+  document.getElementById("13").setAttribute("disabled", "1");
+  document.getElementById("14").setAttribute("disabled", "1");
+}
+</script>
